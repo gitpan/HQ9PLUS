@@ -1,0 +1,90 @@
+NAME
+    hq9p - An HQ9+ Interpreter
+
+SYNOPSIS
+     hq9p program_file
+
+ABSTRACT
+    The HQ9+ programming language has a simple syntax, and solves several
+    very common problems that plague programmers.
+
+DESCRIPTION
+    There are four commands. While this is a very simple language, it allows
+    you to easily do some things that would be very difficult in other
+    programming languages.
+
+    All commands may appear more than once in your program, but it could
+    produce some nasty output. All commands are case-insensitive.
+
+  Commands
+
+   h
+
+    Prints "Hello, world!" to the screen, sans the quotes. It will be
+    trailed by a new-line character.
+
+   q
+
+    This makes your program a quine. It will print copies of itself.
+
+   9
+
+    Prints out the entire lyrics of the "99 bottles of beer on the wall"
+    song.
+
+   +
+
+    Increments the accumulator.
+
+EXAMPLES
+    Print "Hello, world!".
+
+     h
+
+    Print a quine.
+
+     q
+
+    Print four copies of your program.
+
+     qqqq
+
+    Increment the accumulator.
+
+     +
+
+    Do it a lot.
+
+     ++++++++++++++
+
+DIAGNOSTICS
+  Unknown command: %s
+
+    All unknown commands will produce this warning. It's not wholy useful to
+    quit execution, so a warning to STDERR will suffice. Unknown commands
+    are any characters not included in the set case-insensitive set: 'h',
+    'q', '9', '+', and white-space characters.
+
+  Can't open %s: %s
+
+    The program will stop execution in the case of being unable to open a
+    file. This may happen for the program file when passed to the
+    interpreter, or when the command 'q' executes.
+
+  Can't close %s: %s
+
+    The program will stop execution in the rare case of being unable to
+    close a file. This may happen for the program file when passed to the
+    interpreter, or when the command 'q' executes.
+
+AUTHOR
+    Casey West <casey@geeknest.com>
+
+COPYRIGHT
+    Copyright (c) Casey West, all rights reserved. This software is governed
+    by the Artistic License found within the source distribution.
+
+SEE ALSO
+    HW9+ Language Specification
+    http://www.cliff.biffle.org/esoterica/hq9plus.html
+

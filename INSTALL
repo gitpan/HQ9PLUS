@@ -1,0 +1,5 @@
+#!/bin/sh
+# This file may be run as a script: sh INSTALL
+perl Makefile.PL
+make
+make install

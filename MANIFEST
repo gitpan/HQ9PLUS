@@ -1,0 +1,12 @@
+ARTISTIC
+Makefile.PL
+INSTALL
+MANIFEST
+README
+examples/99bottles.hq9p
+examples/hello.hq9p
+examples/odd.hq9p
+examples/plus.hq9p
+examples/quine.hq9p
+examples/quine_many.hq9p
+lib/hq9p.PL
