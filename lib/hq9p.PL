@@ -29,7 +29,7 @@ chdir $origdir;
 __END__
 
 use vars qw[$VERSION %COMMANDS $PROGRAM];
-$VERSION = (qw$Revision 0.1$)[1];
+$VERSION = (qw$Revision 0.2$)[1];
 
 %COMMANDS = (
   'h' => sub { print "Hello, world!\n" },
@@ -177,7 +177,7 @@ the source distribution.
 
 =head1 SEE ALSO
 
-HW9+ Language Specification
+HQ9+ Language Specification
   http://www.cliff.biffle.org/esoterica/hq9plus.html
 
 =cut

@@ -4,7 +4,7 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
   'NAME'      => 'HQ9PLUS',
-  'VERSION'   => '0.1',
+  'VERSION'   => '0.2',
 
   'EXE_FILES' =>  [ 'lib/hq9p' ],
 
