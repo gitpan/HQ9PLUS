@@ -28,12 +28,16 @@ chdir $origdir;
 
 __END__
 
-use vars qw[$VERSION %COMMANDS $PROGRAM];
-$VERSION = (qw$Revision 0.2$)[1];
+use vars qw[$VERSION %COMMANDS $PROGRAM $SRC];
+$VERSION = (qw$Revision 0.4$)[1];
 
 %COMMANDS = (
   'h' => sub { print "Hello, world!\n" },
   'q' => sub {
+               if ( $PROGRAM eq '-' ) {
+                 print $SRC;
+                 return;
+               }
                open FILE, "< $PROGRAM"
                  or die "Can't open $PROGRAM: $!\n";
                print while <FILE>;
@@ -53,12 +57,20 @@ $VERSION = (qw$Revision 0.2$)[1];
   '+' => sub { },
 );
 
-die "Usage: $0 program\n" unless @ARGV == 1;
+die "Usage: $0 [program | -]\n" unless @ARGV == 1;
 
 $PROGRAM = shift;
+$SRC     = '';
 
-open PROG, "< $PROGRAM" or die "Can't open $PROGRAM: $!\n";
+if ( $PROGRAM eq '-' ) {
+	*PROG = *STDIN;
+	$/ = undef;
+} else {
+	open PROG, "< $PROGRAM" or die "Can't open $PROGRAM: $!\n";
+}
+
 while ( <PROG> ) {
+  $SRC .= $_;
   chomp;
   s/\s+//g;
   foreach ( split // ) {
@@ -86,7 +98,7 @@ hq9p - An HQ9+ Interpreter
 
 =head1 SYNOPSIS
 
- hq9p program_file
+ hq9p [program_file | -]
 
 =head1 ABSTRACT
 
